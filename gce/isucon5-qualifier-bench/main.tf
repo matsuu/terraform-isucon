@@ -38,7 +38,8 @@ resource "google_compute_instance" "bench" {
 set -e
 echo "Defaults:root !requiretty" >> /etc/sudoers
 apt-get update
-apt-get -y install ansible jq git
+apt-get -y install ansible jq git language-pack-ja
+update-locale LANG=ja_JP.UTF-8
 git clone https://github.com/isucon/isucon5-qualify.git
 (
     cd isucon5-qualify/gcp/bench/ansible/
