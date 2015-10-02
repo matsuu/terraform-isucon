@@ -44,8 +44,6 @@ git clone https://github.com/isucon/isucon5-qualify.git
 (
     cd isucon5-qualify/gcp/bench/ansible/
     sed -i 's/- copy/#- copy/' 00_devel.yml
-    sed -i 's@key_file=.*@@' 06_deploy_bench_tool.yml
-    sed -i 's@repo=.*@repo=https://github.com/isucon/isucon5-qualify.git@' 06_deploy_bench_tool.yml
     echo localhost ansible_connection=local > local
     PYTHONUNBUFFERED=1 ansible-playbook -i local 00_devel.yml 01_isucon_base.yml 02_xbuild_part.yml 06_deploy_bench_tool.yml
 )
